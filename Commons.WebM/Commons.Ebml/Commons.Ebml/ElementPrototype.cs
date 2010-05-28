@@ -23,7 +23,7 @@
 
 using System;
 using System.Collections.Generic;
-using Commons.Ebml.IO;
+using System.IO;
 
 namespace Commons.Ebml
 {

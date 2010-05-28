@@ -22,6 +22,7 @@
 //
 
 using System.Collections.Generic;
+using System.IO;
 
 namespace Commons.Ebml
 {
@@ -54,7 +55,7 @@ namespace Commons.Ebml
         }
 
         /* Skip the element data */
-        public void SkipData(Stream source)
+        public override void SkipData(Stream source)
         {
             // Skip the child elements
             source.skip(size - usedSize);

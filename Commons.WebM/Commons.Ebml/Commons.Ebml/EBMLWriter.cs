@@ -27,9 +27,7 @@ using System.IO;
 namespace Commons.Ebml
 {
 
-    using Commons.Ebml.IO;
-
-    public class EBMLWriter
+	class EBMLWriter
     {
         protected DataWriter writer;
 

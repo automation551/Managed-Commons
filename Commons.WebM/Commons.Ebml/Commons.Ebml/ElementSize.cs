@@ -1,4 +1,4 @@
-﻿//
+//
 // Copyright ©2010 Rafael 'Monoman' Teixeira
 //
 // Permission is hereby granted, free of charge, to any person obtaining
@@ -27,7 +27,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace Commons.Ebml.Commons.Ebml
+namespace Commons.Ebml
 {
     public class ElementSize
     {

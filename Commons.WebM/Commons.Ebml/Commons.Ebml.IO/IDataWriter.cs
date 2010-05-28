@@ -26,10 +26,8 @@ namespace Commons.Ebml.IO
 
     public interface IDataWriter : ISeekable
     {
-        public int Write(byte b);
-
-        public int Write(byte[] buff);
-
-        public int Write(byte[] buff, int offset, int length);
+        int Write(byte b);
+        int Write(byte[] buff);
+        int Write(byte[] buff, int offset, int length);
     }
 }

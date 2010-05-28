@@ -21,93 +21,77 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-namespace Commons.Ebml.IO;
-
-public class FileDataWriter : IDataWriter 
+namespace Commons.Ebml
 {
-  RandomAccessFile file = null;
 
-  public FileDataWriter(string filename) throws FileNotFoundException, IOException 
-  {
-    file = new RandomAccessFile(filename, "rw");
-  }
-  public FileDataWriter(string filename, string mode) throws FileNotFoundException, IOException 
-  {
-    file = new RandomAccessFile(filename, mode);
-  }
-  public int write(byte b) 
-  {
-    try 
-    {
-      file.write(b);
-      return 1;
-    } 
-    catch (IOException ex) 
-    {
-      return 0;
-    }
-  }
-  public int write(byte[] buff) 
-  {
-    try 
-    {
-      file.write(buff);
-      return buff.Length;
-    } 
-    catch (IOException ex) 
-    {
-      return 0;
-    }
-  }
-  public int write(byte[] buff, int offset, int length) 
-  {
-    try 
-    {
-      file.write(buff, offset, length);
-      return length;
-    } 
-    catch (IOException ex) 
-    {
-      return 0;
-    }
-  }
+	public class FileDataWriter : IDataWriter
+	{
+		RandomAccessFile file = null;
 
-  public long length() 
-  {
-    try 
-    {
-      return file.Length();
-    } 
-    catch (IOException ex) 
-    {
-      return -1;
-    }
-  }
-  public long getFilePointer() 
-  {
-    try 
-    {
-      return file.getFilePointer();
-    } 
-    catch (IOException ex) 
-    {
-      return -1;
-    }
-  }
-  public bool isSeekable() 
-  {
-    return true;
-  }
-  public long seek(long pos) 
-  {
-    try 
-    {
-      file.seek(pos);
-      return file.getFilePointer();
-    } 
-    catch (IOException ex) 
-    {
-      return -1;
-    }
-  }
+		public FileDataWriter (string filename)
+		{
+			file = new RandomAccessFile (filename, "rw");
+		}
+		public FileDataWriter (string filename, string mode)
+		{
+			file = new RandomAccessFile (filename, mode);
+		}
+		public int write (byte b)
+		{
+			try {
+				file.write (b);
+				return 1;
+			} catch (IOException ex) {
+				return 0;
+			}
+		}
+		public int write (byte[] buff)
+		{
+			try {
+				file.write (buff);
+				return buff.Length;
+			} catch (IOException ex) {
+				return 0;
+			}
+		}
+		public int write (byte[] buff, int offset, int length)
+		{
+			try {
+				file.write (buff, offset, length);
+				return length;
+			} catch (IOException ex) {
+				return 0;
+			}
+		}
+
+		public long length ()
+		{
+			try {
+				return file.Length ();
+			} catch (IOException ex) {
+				return -1;
+			}
+		}
+		public long getFilePointer ()
+		{
+			try {
+				return file.getFilePointer ();
+			} catch (IOException ex) {
+				return -1;
+			}
+		}
+		public bool isSeekable ()
+		{
+			return true;
+		}
+		public long seek (long pos)
+		{
+			try {
+				file.seek (pos);
+				return file.getFilePointer ();
+			} catch (IOException ex) {
+				return -1;
+			}
+		}
+	}
 }

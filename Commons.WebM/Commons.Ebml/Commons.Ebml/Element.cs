@@ -22,8 +22,7 @@
 //
 
 using System;
-
-using Commons.Ebml.IO;
+using System.IO;
 
 namespace Commons.Ebml
 {
@@ -49,7 +48,7 @@ namespace Commons.Ebml
             dataRead = true;
         }
 
-        public void SkipData(Stream source)
+        public virtual void SkipData(Stream source)
         {
             if (Size.Value > 0 && !dataRead)
             {
@@ -135,6 +134,12 @@ namespace Commons.Ebml
         {
             return Equals(elemType.id);
         }
+		
+		public override int GetHashCode ()
+		{
+			return elemType.GetHashCode ();
+		}
+
 
         public static byte[] makeEbmlCode(byte[] typeID, long size)
         {

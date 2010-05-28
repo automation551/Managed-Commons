@@ -1,4 +1,4 @@
-﻿//
+//
 // Copyright ©2010 Rafael 'Monoman' Teixeira
 //
 // Permission is hereby granted, free of charge, to any person obtaining
@@ -26,7 +26,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Commons.Ebml.IO;
 
 namespace Commons.Ebml
 {
@@ -59,6 +58,12 @@ namespace Commons.Ebml
         {
             return other != null && CompareIDs(this, other);
         }
+		
+		public override int GetHashCode ()
+		{
+			return chars.GetHashCode ();
+		}
+
 
         public int Length { get { return id.Length; } }
 
