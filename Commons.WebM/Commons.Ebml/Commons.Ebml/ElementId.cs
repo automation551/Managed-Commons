@@ -61,7 +61,7 @@ namespace Commons.Ebml
 		
 		public override int GetHashCode ()
 		{
-			return chars.GetHashCode ();
+			return id.GetHashCode ();
 		}
 
 
@@ -69,8 +69,9 @@ namespace Commons.Ebml
 
         public byte[] Bytes { get { return id; } }
 
-        public byte[] ToCode(ElementSize size)
+        public byte[] ToCode(ElementSize size, int minSizeLength)
         {
+			// TODO: pass minSizeLenght to Bytes (rename and turn into a method)
             byte[] sizeBytes = size.Bytes;
             byte[] result = new byte[id.Length + sizeBytes.Length];
             Array.Copy(id, result, id.Length);
@@ -81,7 +82,7 @@ namespace Commons.Ebml
         public static ElementId Read(Stream source)
         {
             //Begin loop with byte set to newly read byte.
-            byte firstByte = source.readByte();
+            byte firstByte = (byte)source.ReadByte();
             int numBytes = 0;
 
             //Begin by counting the bits unset before the first '1'.
@@ -110,7 +111,7 @@ namespace Commons.Ebml
             if (numBytes > 1)
             {
                 //Read the rest of the size.
-                source.read(data, 1, numBytes - 1);
+                source.Read(data, 1, numBytes - 1);
             }
             return new ElementId(data);
         }

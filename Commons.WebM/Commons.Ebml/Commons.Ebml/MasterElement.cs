@@ -61,7 +61,7 @@ namespace Commons.Ebml
             source.skip(size - usedSize);
         }
 
-        public long writeData(DataWriter writer)
+        public long writeData(Stream writer)
         {
             long len = 0;
             for (int i = 0; i < children.size(); i++)

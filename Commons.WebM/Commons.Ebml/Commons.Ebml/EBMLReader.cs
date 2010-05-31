@@ -65,7 +65,7 @@ namespace Commons.Ebml
             }
 
             //Set it's size
-            elem.setSize(elementSize);
+            elem.Size = new ElementSize(elementSize);
 
             //Return the element
             return elem;
@@ -80,7 +80,7 @@ namespace Commons.Ebml
         static public long readEBMLCode(Stream source)
         {
             //Begin loop with byte set to newly read byte.
-            byte firstByte = source.readByte();
+            byte firstByte = (byte)source.ReadByte();
             int numBytes = 0;
 
             //Begin by counting the bits unset before the first '1'.
@@ -110,7 +110,7 @@ namespace Commons.Ebml
             if (numBytes > 1)
             {
                 //Read the rest of the size.
-                source.read(data, 1, numBytes - 1);
+                source.Read(data, 1, numBytes - 1);
             }
 
             //Put this into a long
@@ -284,7 +284,7 @@ namespace Commons.Ebml
         {
 
             //Begin loop with byte set to newly read byte.
-            byte firstByte = source.readByte();
+            byte firstByte = (byte)source.ReadByte();
             int numBytes = 0;
 
             //Begin by counting the bits unset before the first '1'.
@@ -314,7 +314,7 @@ namespace Commons.Ebml
             if (numBytes > 1)
             {
                 //Read the rest of the size.
-                source.read(data, 1, numBytes - 1);
+                source.Read(data, 1, numBytes - 1);
             }
 
             //Put this into a long

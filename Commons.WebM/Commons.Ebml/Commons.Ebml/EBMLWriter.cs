@@ -29,9 +29,9 @@ namespace Commons.Ebml
 
 	class EBMLWriter
     {
-        protected DataWriter writer;
+        protected Stream writer;
 
-        public EBMLWriter(DataWriter writer)
+        public EBMLWriter(Stream writer)
         {
             this.writer = writer;
         }

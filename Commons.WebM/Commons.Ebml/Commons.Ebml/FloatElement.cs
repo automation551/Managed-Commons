@@ -39,6 +39,7 @@ namespace Commons.Ebml
 
         private void setValue(double value)
         {
+			// TODO: deal with floats
             try
             {
                 if (value < Float.MAX_VALUE)
