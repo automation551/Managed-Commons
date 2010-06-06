@@ -40,7 +40,7 @@ namespace Commons.Ebml
         private void setValue(double value)
         {
 			// TODO: deal with floats
-            try
+            /*try
             {
                 if (value < Float.MAX_VALUE)
                 {
@@ -69,12 +69,12 @@ namespace Commons.Ebml
             catch (IOException ex)
             {
                 return;
-            }
+            } */
         }
 
         private double getValue()
         {
-            try
+            /*try
             {
                 if (size == 4)
                 {
@@ -103,7 +103,8 @@ namespace Commons.Ebml
             catch (IOException ex)
             {
                 return 0;
-            }
+            }*/
+			return 0;
         }
     }
 }

@@ -23,13 +23,11 @@
 namespace Commons.Ebml
 {
 
-    public class BinaryElement : Element
-    {
-        private static int MIN_SIZE_LENGTH = 4;
-
-        public BinaryElement(ElementId type, int minSizeLength)
-            : base(type, minSizeLength)
-        {
-        }
-   }
+	public class BinaryElement : Element
+	{
+		public BinaryElement (ElementId type, int minSizeLength) : base(type, minSizeLength)
+		{
+			MinSizeLength = (minSizeLength <= 0) ? 4 : minSizeLength;
+		}
+	}
 }

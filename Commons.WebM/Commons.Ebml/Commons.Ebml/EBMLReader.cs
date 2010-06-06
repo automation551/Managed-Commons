@@ -65,7 +65,7 @@ namespace Commons.Ebml
             }
 
             //Set it's size
-            elem.Size = new ElementSize(elementSize);
+            elem.Size = elementSize;
 
             //Return the element
             return elem;

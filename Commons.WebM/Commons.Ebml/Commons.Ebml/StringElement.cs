@@ -20,88 +20,44 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
+using System;
+using System.Text;
 
 namespace Commons.Ebml
 {
 
-    public class StringElement
-        : BinaryElement
-    {
+	public class StringElement : BinaryElement
+	{
 
-        private string charset = "UTF-8";
+		private string charset = "UTF-8";
 
-        public StringElement(ElementId type, int minSizeLength)
-            : base(type, minSizeLength)
-        {
-        }
+		public StringElement (ElementId type, int minSizeLength) : base(type, minSizeLength)
+		{
+		}
 
-        public StringElement(ElementId type, string encoding, int minSizeLength)
-            : base(type, minSizeLength)
-        {
-            charset = encoding;
-        }
+		public StringElement (ElementId type, string encoding, int minSizeLength) : base(type, minSizeLength)
+		{
+			charset = encoding;
+		}
 
-        private bool checkForCharsetHack()
-        {
-            // Check if we are trying to read UTF-8, if so lets try UTF8.
-            // Microsofts Java supports "UTF8" but not "UTF-8"
-            if (charset.compareTo("UTF-8") == 0)
-            {
-                charset = "UTF8";
-                // Let's try again
-                return true;
-            }
-            else if (charset.compareTo("US-ASCII") == 0)
-            {
-                // This is the same story as UTF-8, 
-                // If Microsoft is going to hijack Java they should at least support the orignal :>
-                charset = "ASCII";
-                // Let's try again
-                return true;
-            }
-            return false;
-        }
+		public string Value {
+			get {
+				if (data == null)
+					throw new System.InvalidOperationException ("Call ReadData() before trying to extract the string value.");
+				
+				return EncodingToUse.GetString (data);
+			}
 
-        public string getValue()
-        {
-            try
-            {
-                if (data == null)
-                    throw new java.lang.IllegalStateException("Call ReadData() before trying to extract the string value.");
+			set { Data = EncodingToUse.GetBytes (value); }
+		}
 
-                return new string(data, charset);
-            }
-            catch (java.IO.UnsupportedEncodingException ex)
-            {
-                if (checkForCharsetHack())
-                {
-                    return getValue();
-                }
-                ex.printStackTrace();
-                return "";
-            }
-        }
+		private Encoding EncodingToUse {
+			get { return Encoding.GetEncoding (charset); }
+		}
 
-        public void setValue(string value)
-        {
-            try
-            {
-                setData(value.getBytes(charset));
-            }
-            catch (java.IO.UnsupportedEncodingException ex)
-            {
-                if (checkForCharsetHack())
-                {
-                    setValue(value);
-                    return;
-                }
-                ex.printStackTrace();
-            }
-        }
-
-        public string getEncoding()
-        {
-            return charset;
-        }
-    }
+		public string getEncoding ()
+		{
+			return charset;
+		}
+	}
 }

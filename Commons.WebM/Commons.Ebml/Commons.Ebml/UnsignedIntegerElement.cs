@@ -46,12 +46,12 @@ namespace Commons.Ebml
                     tmp >>= (56 - (i * 8));
                     l |= tmp;
                 }
-                return l;
+                return (ulong)l;
             }
 
             set
             {
-                Data = packIntUnsigned(value);
+                Data = value.Pack();
             }
         }
     }

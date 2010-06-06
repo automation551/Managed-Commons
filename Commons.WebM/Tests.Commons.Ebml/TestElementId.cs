@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +15,7 @@ namespace Tests.Commons.Ebml
         [Test]
         public void TestCreationFromBytes() {
             ElementId id = new ElementId(1, 2, 3, 4);
-            Assert.NotNull(id);
+            Assert.IsNotNull(id);
             Assert.AreEqual(4, id.Bytes.Length);
             Assert.IsTrue(compareBytes(id.Bytes, new byte[] { 1, 2, 3, 4 }));
         }

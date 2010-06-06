@@ -40,42 +40,41 @@ namespace Commons.Ebml
 
         public Element readNextChild(EBMLReader reader)
         {
-            if (usedSize >= this.getSize())
+            if (usedSize >= this.Size)
                 return null;
 
-            Element elem = reader.readNextElement();
-            if (elem == null)
+            Element childElement = reader.readNextElement();
+            if (childElement == null)
                 return null;
 
-            elem.setParent(this);
+            childElement.Parent = this;
 
-            usedSize += elem.getTotalSize();
+            usedSize += childElement.TotalSize;
 
-            return elem;
+            return childElement;
         }
 
         /* Skip the element data */
         public override void SkipData(Stream source)
         {
             // Skip the child elements
-            source.skip(size - usedSize);
+            source.Seek(Size - usedSize, SeekOrigin.Current);
         }
 
         public long writeData(Stream writer)
         {
             long len = 0;
-            for (int i = 0; i < children.size(); i++)
+            foreach (Element childElement in children)
             {
-                Element elem = (Element)children.get(i);
-                len += elem.Write(writer);
+                len += childElement.Write(writer);
             }
             return len;
         }
 
-        public void addChildElement(Element elem)
+        public void addChildElement(Element childElement)
         {
-            children.add(elem);
-            size += elem.getTotalSize();
+            children.Add(childElement);
+            Size += childElement.TotalSize;
         }
     }
 }

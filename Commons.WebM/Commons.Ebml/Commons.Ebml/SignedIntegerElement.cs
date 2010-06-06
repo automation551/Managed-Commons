@@ -36,7 +36,7 @@ namespace Commons.Ebml
         {
             set
             {
-                Data = packInt(value);
+                Data = value.Pack();
             }
 
             get

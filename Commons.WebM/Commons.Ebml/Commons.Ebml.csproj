@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commons.Ebml\BinaryElement.cs" />
-    <Compile Include="Commons.Ebml\ElementSize.cs" />
     <Compile Include="Commons.Ebml\DateElement.cs" />
     <Compile Include="Commons.Ebml\IDocumentRecognizer.cs" />
     <Compile Include="Commons.Ebml\EBMLReader.cs" />
@@ -65,6 +64,7 @@
     <Compile Include="Commons.Ebml\StringElement.cs" />
     <Compile Include="Commons.Ebml\UnknownElementType.cs" />
     <Compile Include="Commons.Ebml\UnsignedIntegerElement.cs" />
+    <Compile Include="Commons.Ebml\ElasticLongExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

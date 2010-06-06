@@ -69,10 +69,10 @@ namespace Commons.Ebml
 
         public byte[] Bytes { get { return id; } }
 
-        public byte[] ToCode(ElementSize size, int minSizeLength)
+        public byte[] ToCode(long size, int minSizeLength)
         {
 			// TODO: pass minSizeLenght to Bytes (rename and turn into a method)
-            byte[] sizeBytes = size.Bytes;
+            byte[] sizeBytes = size.ToBytes(minSizeLength);
             byte[] result = new byte[id.Length + sizeBytes.Length];
             Array.Copy(id, result, id.Length);
             Array.Copy(sizeBytes, 0, result, id.Length, sizeBytes.Length);

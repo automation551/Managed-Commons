@@ -28,12 +28,12 @@ namespace Commons.Ebml
     public class DateElement : SignedIntegerElement
     {
         public static long UnixEpochDelay = 978307200; // 2001/01/01 00:00:00 UTC
-        private static int MIN_SIZE_LENGTH = 8;
 
         public DateElement(ElementId type, int minSizeLength)
             : base(type, minSizeLength)
         {
-        }
+ 			MinSizeLength = (minSizeLength <= 0) ? 8 : minSizeLength;
+       }
 
         public DateTime Date
         {
