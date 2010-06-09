@@ -6,3 +6,7 @@ core
 *.o
 *~
 *.swp
+*.user
+*.ncb
+Debug
+Release
