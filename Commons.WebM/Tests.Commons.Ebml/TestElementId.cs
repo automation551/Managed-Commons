@@ -36,6 +36,14 @@ namespace Tests.Commons.Ebml
             Assert.IsTrue(compareBytes(id.Bytes, new byte[] { 0x31, 0x32, 0x33, 0x34 }));
         }
 
+        [Test]
+        public void TestCreationFromLong() {
+            ElementId id = new ElementId(0x31323334l);
+            Assert.IsNotNull(id);
+            Assert.AreEqual(4, id.Bytes.Length);
+            Assert.IsTrue(compareBytes(id.Bytes, new byte[] { 0x31, 0x32, 0x33, 0x34 }));
+        }
+
         private bool compareBytes(byte[] first, byte[] second)
         {
             if (first == null || second == null || first.Length != second.Length) return false;

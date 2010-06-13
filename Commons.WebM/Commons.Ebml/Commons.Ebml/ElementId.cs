@@ -33,7 +33,22 @@ namespace Commons.Ebml
     {
         private byte[] id;
 
-        public ElementId(params byte[] idBytes)
+		public ElementId(ulong value)
+		{
+			List<byte> bytes = new List<byte>();
+			byte b;
+			while(true) {
+				b = (byte)(value & 0xFF);
+				value >>= 8;
+				if (b == 0)
+					break;
+				bytes.Add(b);
+			}
+			id = bytes.ToArray();
+			Array.Reverse(id);
+		}
+		
+		public ElementId(params byte[] idBytes)
         {
             id = idBytes;
         }
