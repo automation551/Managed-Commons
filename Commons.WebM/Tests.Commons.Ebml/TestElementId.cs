@@ -38,7 +38,7 @@ namespace Tests.Commons.Ebml
 
         [Test]
         public void TestCreationFromLong() {
-            ElementId id = new ElementId(0x31323334l);
+            ElementId id = new ElementId(0x31323334L);
             Assert.IsNotNull(id);
             Assert.AreEqual(4, id.Bytes.Length);
             Assert.IsTrue(compareBytes(id.Bytes, new byte[] { 0x31, 0x32, 0x33, 0x34 }));
