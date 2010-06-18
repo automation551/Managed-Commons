@@ -1,6 +1,1 @@
-bin/
-obj/
-*.suo
 BigBuckBunny.webm
-Tests.Commons.Ebml/TestResult.xml
-Tests.Commons.Ebml/Tests.Commons.Ebml.VisualState.xml
