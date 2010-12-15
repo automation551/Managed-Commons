@@ -44,6 +44,18 @@ namespace Tests.Commons.Ebml
             Assert.IsTrue(compareBytes(id.Bytes, new byte[] { 0x31, 0x32, 0x33, 0x34 }));
         }
 
+        [Test]
+        public void TestEncodingWithCreationFromLong() {
+            ElementId id = new ElementId(0x31323334L);
+            Assert.IsNotNull(id);
+            Assert.AreEqual(4, id.Bytes.Length);
+            Assert.IsTrue(compareBytes(id.Bytes, new byte[] { 0x31, 0x32, 0x33, 0x34 }));
+			Assert.IsTrue(compareBytes(id.ToCode(258L, 1),
+			                           new byte[] { 0x31, 0x32, 0x33, 0x34, 0x41, 0x02 }));
+			Assert.IsTrue(compareBytes(id.ToCode(258L, 3),
+			                           new byte[] { 0x31, 0x32, 0x33, 0x34, 0x20, 0x01, 0x02 }));
+        }
+
         private bool compareBytes(byte[] first, byte[] second)
         {
             if (first == null || second == null || first.Length != second.Length) return false;

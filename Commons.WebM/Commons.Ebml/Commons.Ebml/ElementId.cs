@@ -86,15 +86,14 @@ namespace Commons.Ebml
 
         public byte[] ToCode(long size, int minSizeLength)
         {
-			// TODO: pass minSizeLenght to Bytes (rename and turn into a method)
             byte[] sizeBytes = size.ToBytes(minSizeLength);
             byte[] result = new byte[id.Length + sizeBytes.Length];
             Array.Copy(id, result, id.Length);
             Array.Copy(sizeBytes, 0, result, id.Length, sizeBytes.Length);
             return result;
         }
-
-        public static ElementId Read(Stream source)
+		
+		public static ElementId Read(Stream source)
         {
             //Begin loop with byte set to newly read byte.
             byte firstByte = (byte)source.ReadByte();

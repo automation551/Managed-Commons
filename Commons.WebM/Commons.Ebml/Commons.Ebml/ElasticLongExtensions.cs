@@ -33,19 +33,13 @@ namespace Commons.Ebml
     {
         public static byte[] ToBytes(this long value, int minLength)
         {
-            int codedLength = GetCodedLength(value);
-            if (minLength < 9 && minLength > codedLength)
-                codedLength = minLength;
-            return new byte[codedLength];
+            return makeEbmlCodedSize(value, minLength);
         }
 
 
         public static byte[] ToBytes(this ulong value, int minLength)
         {
-            int codedLength = GetCodedLength(value);
-            if (minLength < 9 && minLength > codedLength)
-                codedLength = minLength;
-            return new byte[codedLength];
+            return makeEbmlCodedSize((long)value, minLength);
         }
 
 
@@ -163,17 +157,8 @@ namespace Commons.Ebml
         {
             return 0;
         }
-        public static byte[] makeEbmlCode(byte[] typeID, long size, int minSizeLength)
-        {
-            int codedLen = codedSizeLength(size, minSizeLength);
-            byte[] ret = new byte[typeID.Length + codedLen];
-            Array.Copy(typeID, ret, typeID.Length);
-            byte[] codedSize = makeEbmlCodedSize(size, minSizeLength);
-            Array.Copy(codedSize, 0, ret, typeID.Length, codedSize.Length);
-            return ret;
-        }
 
-        public static byte[] makeEbmlCodedSize(long size, int minSizeLength)
+        private static byte[] makeEbmlCodedSize(long size, int minSizeLength)
         {
             int len = codedSizeLength(size, minSizeLength);
             byte[] ret = new byte[len];
