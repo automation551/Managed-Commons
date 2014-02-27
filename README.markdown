@@ -11,6 +11,4 @@ to it's textual representation in the Brazilian Portuguese language.
 
 Both libraries above are stable releases.
 
-The newest addition, still in very early development, is the __Commons.WebM__ library which implements a managed codec for the [WebM](http://www.webmproject.org/) video format.
-
-Most development is in C# (4.0), but possibly some [Boo](http://boo.codehaus.org/) code can appear for new subprojects.
+Most development is in C# 5.0+.
