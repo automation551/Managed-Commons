@@ -7,3 +7,5 @@ test-results/
 TestResult.xml
 *.VisualState.xml
 
+*.user
+*.nupkg
