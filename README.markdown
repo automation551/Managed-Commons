@@ -1,6 +1,6 @@
 # What are the Managed Commons? #
 	
-A set of libraries for .NET/Mono, BSD licensed, helping in many areas of programming.
+A set of libraries for .NET/Mono, MIT licensed, helping in many areas of programming.
  
 The best known example is __Commons.GetOptions__ which is a library for command line arguments parsing. 
 It is the evolution of the years-old Mono.GetOptions library, distributed with [Mono](http://www.mono-project.com). 
