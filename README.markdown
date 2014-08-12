@@ -15,4 +15,6 @@ __Commons.Locale.Helpers.pt_BR 1.0.0 is now available as a Nuget:__ [Commons.Loc
 
 Both libraries above are stable releases.
 
-Most development is in C# 6.0+.
+## This is just the aggregating project  ##
+
+__Commons.Locale.Helpers.pt_BR already moved to__ [managed-commons-locale-helpers-pt_BR](https://github.com/monoman/managed-commons-locale-helpers-pt_BR).
