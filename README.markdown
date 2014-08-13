@@ -18,3 +18,5 @@ Both libraries above are stable releases.
 ## This is just the aggregating project  ##
 
 __Commons.Locale.Helpers.pt_BR already moved to__ [managed-commons-locale-helpers-pt_BR](https://github.com/monoman/managed-commons-locale-helpers-pt_BR).
+
+__Commons.GetOptions already moved to__ [managed-commons-getoptions](https://github.com/monoman/managed-commons-getoptions).
