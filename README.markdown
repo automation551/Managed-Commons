@@ -41,14 +41,13 @@ characteristics above, including participants with disabilities.
 
 ### Reporting Issues
 
-If you experience or witness unacceptable behavior—or have any other concerns—please report it by contacting us appending on the  **[Code Of Conduct Transgressions](https://github.com/managed-commons/Managed-Commons/issues/5)** issue, or adding a new issue with the **[CodeOfConduct](https://github.com/managed-commons/Managed-Commons/labels/CodeOfConduct)** label. All reports will be handled with discretion. In your report please include:
+If you experience or witness unacceptable behavior—or have any other concerns—please report it by contacting us appending on the  **[Code Of Conduct Transgressions](https://github.com/managed-commons/Managed-Commons/issues/5)** issue, or adding a new issue with the **[CodeOfConduct](https://github.com/managed-commons/Managed-Commons/labels/CodeOfConduct)** label. All reports will be handled publicly on GitHub issues infrastructure. In your report please include:
 
-- Your contact information.
 - Names (real, nicknames, or pseudonyms) of any individuals involved. If there are additional witnesses, please
 include them as well. Your account of what occurred, and if you believe the incident is ongoing. If there is a publicly available record (e.g. a mailing list archive or a public IRC logger), please include a link.
 - Any additional information that may be helpful.
 
-After filing a report, a representative will contact you personally. If the person who is harassing you is part of the response team, they will recuse themselves from handling your incident. A representative will then review the incident, follow up with any additional questions, and make a decision as to how to respond. We will respect confidentiality requests for the purpose of protecting victims of abuse.
+After filing a report, a representative will contact you personally. If the person who is harassing you is part of the response team, they will recuse themselves from handling your incident. A representative will then review the incident, follow up with any additional questions, and make a decision as to how to respond. Sorry, but using an issue means we can't honor confidentiality requests.
 
 Anyone asked to stop unacceptable behavior is expected to comply immediately. If an individual engages in unacceptable behavior, the representative may take any action they deem appropriate, up to and including a permanent ban from our community without warning.
 
@@ -56,6 +55,7 @@ Anyone asked to stop unacceptable behavior is expected to comply immediately. If
 
 We all stand on the shoulders of giants across many open source communities.  We'd like to thank the communities and projects that established code of conducts and diversity statements as our inspiration:
 
+* [TODO Group](http://todogroup.org/)
 * [Django](https://www.djangoproject.com/conduct/reporting/)
 * [Python](https://www.python.org/community/diversity/)
 * [Ubuntu](http://www.ubuntu.com/about/about-ubuntu/conduct)
